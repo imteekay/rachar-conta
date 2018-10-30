@@ -1,8 +1,23 @@
 (ns rachar-conta.calculation)
 
+(defn calculate-total-price
+  [card-bill]
+  (reduce
+    +
+    (map
+      #(:price %)
+      card-bill)))
+
 (defn calculate-10%-tip
-  [total-bill]
-  (/ total-bill 10.0))
+  [total-price]
+  (/ total-price 10.0))
+
+(defn total-bill
+  [card-bill]
+  (let [total-price (calculate-total-price card-bill)]
+    (+
+      total-price
+      (calculate-10%-tip total-price))))
 
 (defn bill-for-each
   [total-bill number-of-people]
