@@ -1,20 +1,12 @@
 (ns rachar-conta.core-test
   (:require [clojure.test :refer :all]
             [rachar-conta.calculation :refer :all]
+            [rachar-conta.persistence :refer :all]
             [rachar-conta.core :refer :all]))
 
 (deftest initialized-bill-test
   (testing "Test the value of the initialized bill"
     (is (= 0 @total-bill))
-    (reset! total-bill 0)))
-
-(deftest update-total-bill-test
-  (testing "Test the total bill update"
-    (is (= 0 @total-bill))
-    (update-total-bill total-bill 10)
-    (is (= 10 @total-bill))
-    (update-total-bill total-bill 10)
-    (is (= 20 @total-bill))
     (reset! total-bill 0)))
 
 (deftest integration-test
