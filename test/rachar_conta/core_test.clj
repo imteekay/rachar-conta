@@ -9,6 +9,19 @@
     (is (= 0 @total-bill))
     (reset! total-bill 0)))
 
+(deftest build-order-test
+  (testing "Build Order Test"
+    (is
+      (=
+        {:id "HUEHUE" :food "Simple Burger" :price 22.00}
+        (build-order "HUEHUE" "Simple Burger" 22.00)))))
+
+(deftest make-order-test
+  (testing "Make Order Test"
+    (is (= [] @bill-card))
+    (make-order {:id "HUEHUE" :food "Simple Burger" :price 22.00})
+    (is (= [{:id "HUEHUE" :food "Simple Burger" :price 22.00}] @bill-card))))
+
 (deftest integration-test
   (testing "Simulates a `real` restaurant bill"
     (persistence/update-total-bill total-bill 22) ;; simple burger
