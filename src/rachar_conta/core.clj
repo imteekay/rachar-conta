@@ -13,5 +13,4 @@
 (defn bill-for-each
   [total-bill number-of-people]
   (let [total-bill (* 1.0 total-bill)]
-    (format "%.2f"
-      (/ total-bill number-of-people))))
+    (/ total-bill number-of-people)))
