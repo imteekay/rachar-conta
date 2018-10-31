@@ -23,3 +23,10 @@
   [total-bill number-of-people]
   (let [total-bill (* 1.0 total-bill)]
     (/ total-bill number-of-people)))
+
+(defn calculate-total-price-for
+  [customer bill-card]
+  (total-bill
+    (filter
+      #(= customer (:customer %))
+      bill-card)))
