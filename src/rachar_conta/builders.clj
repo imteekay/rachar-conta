@@ -1,6 +1,7 @@
 (ns rachar-conta.builders)
 
-(defn build-order [food price]
-  {:id    (rand-int 9999999)
-   :food  food
-   :price price})
+(defn build-order [food customer price]
+  {:id       (rand-int 9999999)
+   :food     food
+   :customer customer
+   :price    price})

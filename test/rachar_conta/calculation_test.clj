@@ -6,14 +6,14 @@
 
 (deftest total-bill-test
   (testing "Test the calculation for total bill"
-    (persistence/make-order bill-card {:id 1 :food "Simple Burger" :price 22.00})
-    (persistence/make-order bill-card {:id 2 :food "X-Bacon"       :price 29.00})
-    (persistence/make-order bill-card {:id 3 :food "Veggie Burger" :price 30.00})
-    (persistence/make-order bill-card {:id 4 :food "X-Burger"      :price 24.00})
-    (persistence/make-order bill-card {:id 5 :food "Coke"          :price 5.00})
-    (persistence/make-order bill-card {:id 6 :food "Heineken"      :price 7.00})
-    (persistence/make-order bill-card {:id 7 :food "Coke"          :price 5.00})
-    (persistence/make-order bill-card {:id 8 :food "Coke"          :price 5.00})
+    (persistence/make-order bill-card {:id 1 :food "Simple Burger" :customer "Kaio"   :price 22.00})
+    (persistence/make-order bill-card {:id 2 :food "X-Bacon"       :customer "TK"     :price 29.00})
+    (persistence/make-order bill-card {:id 3 :food "Veggie Burger" :customer "Kazumi" :price 30.00})
+    (persistence/make-order bill-card {:id 4 :food "X-Burger"      :customer "Monica" :price 24.00})
+    (persistence/make-order bill-card {:id 5 :food "Coke"          :customer "Kaio"   :price 5.00})
+    (persistence/make-order bill-card {:id 6 :food "Heineken"      :customer "Kazumi" :price 7.00})
+    (persistence/make-order bill-card {:id 7 :food "Coke"          :customer "TK"     :price 5.00})
+    (persistence/make-order bill-card {:id 8 :food "Coke"          :customer "Monica" :price 5.00})
     (is (= 139.7 (calculation/total-bill @bill-card)))
     (reset! bill-card [])))
 
