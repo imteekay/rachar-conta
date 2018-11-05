@@ -2,11 +2,9 @@
 
 (defn calculate-total-price
   [card-bill]
-  (reduce
-    +
-    (map
-      #(:price %)
-      card-bill)))
+  (->> card-bill
+       (map #(:price %))
+       (reduce +)))
 
 (defn calculate-10%-tip
   [total-price]
@@ -26,7 +24,6 @@
 
 (defn calculate-total-price-for
   [customer bill-card]
-  (total-bill
-    (filter
-      #(= customer (:customer %))
-      bill-card)))
+  (->> bill-card
+       (filter #(= customer (:customer %)))
+       (total-bill)))
